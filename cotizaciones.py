@@ -21,8 +21,8 @@ def monedas_mayorista(moneda):
         return None
 
 # Conectar al libro abierto de Excel
-def escribir_valor_excel(moneda, valor, nombre_libro='Cotizaciones.xlsx'):
-    if moneda == 'dolar':
+def escribir_valor_excel(moneda, valor, nombre_libro):
+    if moneda[0] == "dolar":
         celda='B2'
     else:
         celda='B3'
@@ -33,15 +33,16 @@ def escribir_valor_excel(moneda, valor, nombre_libro='Cotizaciones.xlsx'):
 
 if __name__ == '__main__':
 
-    dolar = "https://dolarapi.com/v1/dolares/mayorista"
-    euro = "https://dolarapi.com/v1/cotizaciones/eur"
+    dolar = ("dolar","https://dolarapi.com/v1/dolares/mayorista")
+    euro = ("euro", "https://dolarapi.com/v1/cotizaciones/eur")
+    file = r"C:\Users\jalvaredo\OneDrive - CV CONTROL SA\Sincro\Bancos\cotizaciones.xlsx"
 
-    datos = monedas_mayorista(dolar)
+    datos = monedas_mayorista(dolar[1])
     if datos:
         print(f"Cierre vendedor de {datos[0]} divisa del {datos[1]}: $ {datos[2]}")
-        escribir_valor_excel(dolar, datos[2])  # 👉 Esto actualiza la celda B2 en tiempo real
+        escribir_valor_excel(dolar, datos[2], file )  # 👉 Esto actualiza la celda B2 en tiempo real
 
-    datos = monedas_mayorista(euro)
+    datos = monedas_mayorista(euro[1])
     if datos:
         print(f"Cierre vendedor de {datos[0]} divisa del {datos[1]}: $ {datos[2]}")
-        escribir_valor_excel(euro, datos[2]) 
+        escribir_valor_excel(euro, datos[2], file) 
