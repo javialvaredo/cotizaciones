@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-import xlwings as xw  # 👈 Importar xlwings
+import xlwings as xw  
 
 def convertir_formato_fecha(fecha):
     fecha_iso = fecha
@@ -20,19 +20,19 @@ def monedas_mayorista(moneda):
         print("Error al obtener los datos.")
         return None
 
-# 🟢 Conectar al libro abierto de Excel
+# Conectar al libro abierto de Excel
 def escribir_valor_excel(moneda, valor, nombre_libro='Cotizaciones.xlsx'):
     if moneda == 'dolar':
         celda='B2'
     else:
         celda='B3'
-
     
     wb = xw.Book(nombre_libro)  # Asegurate de que el archivo esté abierto y este sea el nombre correcto
     hoja = wb.sheets[0]  # Podés cambiar por el nombre: wb.sheets['Hoja1']
     hoja.range(celda).value = valor
 
 if __name__ == '__main__':
+
     dolar = "https://dolarapi.com/v1/dolares/mayorista"
     euro = "https://dolarapi.com/v1/cotizaciones/eur"
 
