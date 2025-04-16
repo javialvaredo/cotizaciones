@@ -46,8 +46,7 @@ class Escribir_excel:
 def main():
     url = 'https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones'
 
-    fileCV = r"C:\Users\jalvaredo\OneDrive - CV CONTROL SA\Sincro\Bancos\cotizaciones.xlsx"
-    nombre_libro = r"C:\Users\Javier\Downloads\BANCOS actualizado.xlsm"
+    nombre_libro = r"C:\Users\jalvaredo\OneDrive - CV CONTROL SA\Sincro\Bancos\BANCOS actualizado.xlsm"
     nombre_hoja = "CASHFLOWCV"
 
     request = Request_Api(url)
