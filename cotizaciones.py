@@ -35,7 +35,8 @@ if __name__ == '__main__':
 
     dolar = ("dolar","https://dolarapi.com/v1/dolares/mayorista")
     euro = ("euro", "https://dolarapi.com/v1/cotizaciones/eur")
-    file = r"C:\Users\jalvaredo\OneDrive - CV CONTROL SA\Sincro\Bancos\cotizaciones.xlsx"
+    fileCV = r"C:\Users\jalvaredo\OneDrive - CV CONTROL SA\Sincro\Bancos\cotizaciones.xlsx"
+    file = r"cotizaciones.xlsx"
 
     datos = monedas_mayorista(dolar[1])
     if datos:
