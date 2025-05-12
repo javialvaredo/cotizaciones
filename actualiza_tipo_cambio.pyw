@@ -17,6 +17,7 @@ class Request_Api:
             self.response = self.response.json()
         except requests.exceptions.RequestException as e:
             print(f'Error al obtener datos: {e}')
+            messagebox.showinfo("Error al obtener los datos: ", {e})
             return None
         return self.response
 
